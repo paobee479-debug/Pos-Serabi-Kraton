@@ -1,0 +1,24 @@
+workflows:
+  android-workflow:
+    name: POS Serabi Kraton - Android Build
+    max_build_duration: 30
+    instance_type: mac_mini_m1
+    environment:
+      flutter: stable
+      groups:
+        - supabase_credentials   # buat group ini di Codemagic dashboard, isi SUPABASE_URL & SUPABASE_ANON_KEY
+    scripts:
+      - name: Get Flutter packages
+        script: |
+          flutter pub get
+      - name: Build APK
+        script: |
+          flutter build apk --release \
+            --dart-define=SUPABASE_URL=$SUPABASE_URL \
+            --dart-define=SUPABASE_ANON_KEY=$SUPABASE_ANON_KEY
+    artifacts:
+      - build/app/outputs/flutter-apk/app-release.apk
+    publishing:
+      email:
+        recipients:
+          - your-email@example.com   # ganti dengan email kamu untuk notifikasi build selesai
