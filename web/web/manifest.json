@@ -1,0 +1,12 @@
+{
+    "name": "POS Serabi Solo Kraton",
+    "short_name": "Serabi Kraton",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#FBF3E3",
+    "theme_color": "#1F4B36",
+    "description": "Aplikasi POS F&B Serabi Solo Kraton",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": []
+}
