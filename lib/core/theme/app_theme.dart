@@ -44,7 +44,7 @@ class AppTheme {
           textStyle: GoogleFonts.plusJakartaSans(fontWeight: FontWeight.w600),
         ),
       ),
-      cardTheme: CardThemeData(
+      cardTheme: CardTheme(
         color: AppColors.santanWhite,
         elevation: 2,
         shadowColor: AppColors.kratonGreen.withOpacity(0.15),
