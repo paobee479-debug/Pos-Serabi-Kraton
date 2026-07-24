@@ -59,9 +59,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       onPressed: auth.loading
                           ? null
                           : () async {
-                              final ok = await auth.login(emailCtrl.text.trim(), passCtrl.text);
-                              if (!ok) setState(() => error = 'Email/password salah.');
+                              try {
+                                final ok = await auth.login(emailCtrl.text.trim(), passCtrl.text);
+                                if (!ok) setState(() => error = 'Email/password salah.');
+                              } catch (e) {
+                                setState(() => error = 'Error: $e');
+                              }
                             },
+                      
                       child: auth.loading
                           ? const SizedBox(
                               height: 18, width: 18,
